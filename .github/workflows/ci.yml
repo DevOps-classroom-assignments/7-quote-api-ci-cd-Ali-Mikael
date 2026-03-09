@@ -1,0 +1,20 @@
+name: Lint & Test
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      # Linting
+      - name: Check code style
+        run: npm run lint
+
+      # Run tests
+      - name: Run tests
+        run: npm test
