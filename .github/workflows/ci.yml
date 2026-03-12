@@ -1,6 +1,10 @@
-name: Lint & Test
+name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   build:
@@ -18,3 +22,6 @@ jobs:
       # Run tests
       - name: Run tests
         run: npm test
+
+      - name: build
+        run: npm run build
